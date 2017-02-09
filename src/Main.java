@@ -8,7 +8,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         int carPick;
-        char userInput = ' ';
+        String userInput;
 
         System.out.println("Here's a fancy list of cars for your viewing pleasure!");
         System.out.println();
@@ -21,33 +21,45 @@ public class Main {
         carList.add(new UsedCar("Ford", "Escape", 2007, 12890.99, 50000));
         carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 15999.99, 12000));
 
-        displayCars(carList);
-        System.out.println();
+        do {
 
-        System.out.println("Which car would you like?");
-        carPick = scan.nextInt();
-        scan.nextLine();
-
-        System.out.println(carList.get(carPick - 1));
-
-        System.out.println("Would you like to buy this car? y/n");
-        userInput = scan.next().charAt(0);
-
-        if (userInput == 'y' || userInput == 'Y') {
-
-            System.out.println("Excellent! Our finance department will be in touch shortly.");
-            System.out.println();
-
-            carList.remove(carPick - 1);
             displayCars(carList);
-
-        } else {
-
             System.out.println();
-            System.out.println("Fine. We didn't want you to buy a car anyway.");
-            System.out.println("Buh-Bye now.");
 
-        }
+            System.out.println("Which car would you like?");
+            carPick = scan.nextInt();
+            scan.nextLine();
+
+            System.out.println(carList.get(carPick - 1));
+            System.out.println();
+
+            System.out.println("Would you like to buy this car? y/n");
+            userInput = scan.nextLine();
+
+            if (userInput.equalsIgnoreCase("y")) {
+
+                System.out.println("Excellent! Our finance department will be in touch shortly.");
+                System.out.println();
+                //System.out.println();
+                carList.remove(carPick - 1);
+                displayCars(carList);
+                System.out.println();
+
+            } else {
+
+                System.out.println();
+                System.out.println("Fine. We didn't want you to buy a car anyway.");
+                System.out.println("Buh-Bye now.");
+                System.out.println();
+
+            }
+
+            System.out.println("Do you want to continue? y/n");
+            userInput = scan.nextLine();
+        } while (userInput.equalsIgnoreCase("y"));
+
+        System.out.println();
+        System.out.println("Goodbye!");
 
     }
 

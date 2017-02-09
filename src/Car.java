@@ -50,7 +50,7 @@ public class Car {
 
     @Override //do not need to include this, the IDE will state if something is wrong
     public String toString(){
-        return make + "\t" + model + "\t" + year + "\t" + price; // \t is tab (formatting)
+        return String.format("%1$10s %2$10s %3$10d %4$10.2f" , make, model, year, price);
     }
 
 }
