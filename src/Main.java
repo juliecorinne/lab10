@@ -7,7 +7,6 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        int carPick;
         String userInput;
 
         System.out.println("Here's a fancy list of cars for your viewing pleasure!");
@@ -18,27 +17,39 @@ public class Main {
 
         do {
 
-            displayCars(carList);
-            System.out.println();
+            userInput = promptsForUser(scan, carList);
 
-            System.out.println("Which car would you like?");
-            carPick = rangeValidator();
-
-            System.out.println(carList.get(carPick - 1));
-            //extracts the line the user selected
-            System.out.println();
-
-            System.out.println("Would you like to buy this car? y/n");
-            userInput = scan.nextLine();
-
-            askToBuyCar(carPick, userInput, carList);
-
-            System.out.println("Do you want to continue? y/n");
-            userInput = scan.nextLine();
         } while (userInput.equalsIgnoreCase("y"));
 
         System.out.println();
         System.out.println("Goodbye!");
+
+    }
+
+    public static String promptsForUser(Scanner scan, ArrayList<Car> carList) {
+
+        int carPick;
+        String userInput;
+        displayCars(carList);
+        System.out.println();
+
+        System.out.println("Which car would you like?");
+        carPick = rangeValidator();
+
+        System.out.println(carList.get(carPick - 1));
+        //extracts the line the user selected
+        System.out.println();
+
+        System.out.println("Would you like to buy this car? y/n");
+        userInput = scan.nextLine();
+
+        askToBuyCar(carPick, userInput, carList);
+
+        System.out.println("Do you want to continue? y/n");
+        userInput = scan.nextLine();
+        return userInput;
+
+        //each question for the user along with what should display depending on the answer
 
     }
 
@@ -50,6 +61,8 @@ public class Main {
         carList.add(new UsedCar("Chevrolet", "Silverado", 2000, 10899.99, 70000));
         carList.add(new UsedCar("Ford", "Escape", 2007, 12890.99, 50000));
         carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 15999.99, 12000));
+
+        //list of cars and specifications
 
     }
 
