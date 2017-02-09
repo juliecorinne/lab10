@@ -19,35 +19,42 @@ public class Main {
         carList.add(new Car("Buick", "Envision", 2017, 60999.99));
         carList.add(new UsedCar("Chevrolet", "Silverado", 2000, 10899.99, 70000));
         carList.add(new UsedCar("Ford", "Escape", 2007, 12890.99, 50000));
-        carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 30999.99, 12000));
+        carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 15999.99, 12000));
 
-//        for (Car c: carList) {
-//            System.out.println(c);
-//        }
-
-        for (int i = 0; i <carList.size() ; i++) {
-            System.out.printf("%d. %s\n", i+1, carList.get(i).toString());
-        }
-
+        displayCars(carList);
         System.out.println();
-        System.out.println("Which care would you like?");
+
+        System.out.println("Which car would you like?");
         carPick = scan.nextInt();
         scan.nextLine();
 
         System.out.println(carList.get(carPick - 1));
 
         System.out.println("Would you like to buy this car? y/n");
-        userInput = scan.next().charAt(0);;
+        userInput = scan.next().charAt(0);
 
         if (userInput == 'y' || userInput == 'Y') {
+
             System.out.println("Excellent! Our finance department will be in touch shortly.");
             System.out.println();
 
-            carList.remove(carPick-1);
+            carList.remove(carPick - 1);
+            displayCars(carList);
 
-            for (int i = 0; i <carList.size() ; i++) {
-                System.out.printf("%d. %s\n", i+1, carList.get(i).toString());
-            }
+        } else {
+
+            System.out.println();
+            System.out.println("Fine. We didn't want you to buy a car anyway.");
+            System.out.println("Buh-Bye now.");
+
+        }
+
+    }
+
+    public static void displayCars(ArrayList<Car> carList) {
+
+        for (int i = 0; i < carList.size(); i++) {
+            System.out.printf("%d. %s\n", i + 1, carList.get(i).toString());
         }
 
     }
