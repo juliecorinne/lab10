@@ -11,6 +11,7 @@ public class Main {
 
         System.out.println("Here's a fancy list of cars for your viewing pleasure!");
         System.out.println();
+
         ArrayList<Car> carList = new ArrayList<Car>();
 
         listOfCars(carList);
@@ -108,7 +109,7 @@ public class Main {
 
         while (input < 1 || input > 6) {
 
-            System.out.println("please enter a number between 1 and 6!");
+            System.out.println("please enter a valid number!");
             input = scan.nextInt();
             scan.nextLine();
         }

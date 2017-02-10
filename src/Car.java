@@ -48,9 +48,9 @@ public class Car {
         this.price = price;
     }
 
-    @Override //do not need to include this, the IDE will state if something is wrong
+    @Override
     public String toString(){
-        return String.format("%1$10s %2$10s %3$10d %4$10.2f" , make, model, year, price);
+        return String.format("%1$-12s %2$-12s %3$-7d %4$-10.2f" , make, model, year, price);
     }
 
 }
