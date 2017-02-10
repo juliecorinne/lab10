@@ -35,7 +35,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Which car would you like?");
-        carPick = rangeValidator();
+        carPick = rangeValidator(carList);
 
         System.out.println(carList.get(carPick - 1));
         //extracts the line the user selected
@@ -56,12 +56,16 @@ public class Main {
 
     public static void listOfCars(ArrayList<Car> carList) {
 
+        System.out.printf("\t%1$-11s %2$-12s %3$-7s %4$-10s %5$-10s\n" ,"Make", "Model", "Year", "Price", "Mileage");
+        System.out.println("========================================================");
+        System.out.println();
+
         carList.add(new Car("Ford", "Explorer", 2016, 27999.99));
         carList.add(new Car("Chevrolet", "Cruze", 2017, 21999.99));
         carList.add(new Car("Buick", "Envision", 2017, 60999.99));
-        carList.add(new UsedCar("Chevrolet", "Silverado", 2000, 10899.99, 70000));
-        carList.add(new UsedCar("Ford", "Escape", 2007, 12890.99, 50000));
-        carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 15999.99, 12000));
+        carList.add(new UsedCar("Chevrolet", "Silverado", 2000, 10899.99, 70000.00));
+        carList.add(new UsedCar("Ford", "Escape", 2007, 12890.99, 50000.00));
+        carList.add(new UsedCar("Chevrolet", "Corvette", 2005, 15999.99, 12000.00));
 
         //list of cars and specifications
 
@@ -101,13 +105,13 @@ public class Main {
 
     }
 
-    public static int rangeValidator() {
+    public static int rangeValidator(ArrayList<Car> carList) {
 
         Scanner scan = new Scanner(System.in);
 
         int input = scan.nextInt();
 
-        while (input < 1 || input > 6) {
+        while (input < 1 || (input > (carList.size()))) {
 
             System.out.println("please enter a valid number!");
             input = scan.nextInt();

@@ -3,18 +3,18 @@
  */
 public class UsedCar extends Car {
 
-    private int mileage;
+    private double mileage;
 
     public UsedCar(String make, String model, int year, double price) {
         super(make, model, year, price);
     }
 
-    public UsedCar(String make, String model, int year, double price, int mileage) {
+    public UsedCar(String make, String model, int year, double price, double mileage) {
         super(make, model, year, price);
         this.mileage = mileage;
     }
 
-    public int getMileage() {
+    public double getMileage() {
         return mileage;
     }
 
@@ -24,7 +24,7 @@ public class UsedCar extends Car {
 
     @Override
     public String toString(){
-        return super.toString() + "\t" + "mileage - " + mileage;
+        return super.toString() + "\t" + mileage;
     }
 
 }
